@@ -218,7 +218,7 @@ def logloss(y_true, Y_pred):
 
 import pickle
 
-model_filename = 'XGB-Models/XGB-Model-PPG-RR-Temp-L6-M4-verified.sav'
+model_filename = 'trained-models/XGBoost/XGB-Model-PPG-RR-Temp-L6-M4-verified.sav'
 
 # load the model from disk
 loaded_model = pickle.load(open(model_filename, 'rb'))
