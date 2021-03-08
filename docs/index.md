@@ -13,35 +13,27 @@ The input should be formatted so that the measurements span a minimum of 3 hours
 Tele-SEP model predicts the probability of occurance of sepsis based on the input vital parameter measurements.
 
 ### Trained Models
-Pre-trained XGBoost models for different lead times of prediction ranging from 3 hour to 6 hours is provided for use.
+Pre-trained XGBoost models for different lead times of prediction ranging from 3 hour to 6 hours is provided for use at [our github repository](https://github.com/pprahul/Tele-SEP/tree/main/trained-models/XGBoost)
 
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Usage
+Program to load pre-trained models and predict sepsis is provided [here](https://github.com/pprahul/Tele-SEP/blob/main/Tele-SEP-ModelLoadRunOnly.py). An example is given below.
 
 ```markdown
-Syntax highlighted code block
+import pickle
 
-# Header 1
-## Header 2
-### Header 3
+model_filename = 'trained-models/XGBoost/XGB-Model-PPG-RR-Temp-L6-M4-verified.sav'
 
-- Bulleted
-- List
+# load the model from disk
+loaded_model = pickle.load(open(model_filename, 'rb'))
 
-1. Numbered
-2. List
+# make predictions for test data
+y_pred = loaded_model.predict(X_test)
 
-**Bold** and _Italic_ and `Code` text
+# print classification report 
+print(classification_report(y_test, y_pred)) 
 
-[Link](url) and ![Image](src)
+#confusion matrix
+cnf_matrix = confusion_matrix(y_test, y_pred)
+print(cnf_matrix)
+
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pprahul/Tele-SEP/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
