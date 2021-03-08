@@ -37,3 +37,5 @@ cnf_matrix = confusion_matrix(y_test, y_pred)
 print(cnf_matrix)
 
 ```
+
+This project is supported by [Amrita Vishwa Vidyapeetham](https://www.amrita.edu/).
