@@ -53,7 +53,7 @@ Module: [Tele-SEP-ModelLoadRunOnly.py](https://github.com/pprahul/Tele-SEP/blob/
 
 Parameters: 
 each of the 15 sensor configurations (S<sub>i</sub>)
-Best performing timing tuple (WAUC,LAUC) corresponding to S<sub>i</sub>.
+Best performing timing tuple (W<sub>AUC</sub>,L<sub>AUC</sub>) corresponding to S<sub>i</sub>.
   
 ```markdown
 import pickle
