@@ -1,6 +1,5 @@
 Trained models are available to be used directly by users.
-- L: lead time to prediction (hours)
-- M: monitoring window size (hours)
+(W,L): (monitoring window, lead time) 
 
 Vital parameters
 - HR: heart rate
