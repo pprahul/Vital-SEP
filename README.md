@@ -87,7 +87,7 @@ Parameters:
 Output: From the list of Sensor configurations arranged in ascending order based on number and complexity of vitals, choose the first configuration S<sub>min</sub> for which AUROC obtained in module 1 and corresponding lead time are greater than or equal to their respective threshold values AUC<sub>min</sub>  and L<sub>min</sub>.
 
 ### Setup and runtime
-Modules 1,2 and 3 are run once at the setup time and the 15 best performing pre-trained and validated models corresponding to 15 sensor configurations are also provided in the repository. During runtime, the following algorithm is used to predict sepsis for a new patient.
+Modules 1,2 and 3 are run once at the setup time and a subset of the best performing pre-trained and validated models corresponding to various sensor configurations are also provided in the [repository](https://github.com/pprahul/Tele-SEP/tree/main/trained-models/XGBoost). During runtime, the following algorithm is used to predict sepsis for a new patient.
 
 Parameters: 
 	Patient’s wearable sensor configuration S<sub>p</sub>
@@ -99,6 +99,3 @@ Choose the Tele-SEP model that satisfies the patient’s wearable sensor configu
 From each set choose the best performing model M<sub>p</sub>3<sup>*</sup>, M<sub>p</sub>4<sup>*</sup>, M<sub>p</sub>5<sup>*</sup>, M<sub>p</sub>6<sup>*</sup>. Run these on Patient_vitals to compute the sepsis probabilities.
 
 Output: The maximum of the four sepsis probabilities and the corresponding lead time resulting from the above computation 
-
-### Trained Models
-Pre-trained XGBoost models for different lead times of prediction ranging from 3 hour to 6 hours is provided for use at [our github repository](https://github.com/pprahul/Tele-SEP/tree/main/trained-models/XGBoost)
