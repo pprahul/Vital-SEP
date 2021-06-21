@@ -34,16 +34,27 @@ Curated dataset for this study
 - hospitalB(Emory)_sepsis_curated.zip
 - hospital B_(Emory)_controls_curated.zip
 
-
-### Output
-Tele-SEP model predicts the probability of occurance of sepsis based on the input vital parameter measurements.
-
-### Trained Models
-Pre-trained XGBoost models for different lead times of prediction ranging from 3 hour to 6 hours is provided for use at [our github repository](https://github.com/pprahul/Tele-SEP/tree/main/trained-models/XGBoost)
-
 ### Usage
-Program to load pre-trained models and predict sepsis is provided [here](https://github.com/pprahul/Tele-SEP/blob/main/Tele-SEP-ModelLoadRunOnly.py). An example is given below.
+The Algorithm is implemented as a set of following three python modules:
 
+#### 1: Building and training the XGBoost models using Hospital A datasets.
+Module: [Tele-SEP-train-model.py](https://github.com/pprahul/Tele-SEP/blob/main/Tele-SEP-train-model.py)
+
+Parameters:
+Each of the 15 sensor configurations (S_i)
+Each of the 16 timing tuples (W,L)
+
+Output: AUROC for each (S_i,W,L)
+
+For each sensor configuration the highest AUC yielding model is chosen to be validated in the next function
+
+#### 2: Validating the model using Hospital B datasets.
+Module: [Tele-SEP-ModelLoadRunOnly.py](https://github.com/pprahul/Tele-SEP/blob/main/Tele-SEP-ModelLoadRunOnly.py)
+
+Parameters: 
+each of the 15 sensor configurations (Si)
+Best performing timing tuple (WAUC,LAUC) corresponding to Si.
+  
 ```markdown
 import pickle
 
@@ -63,6 +74,34 @@ cnf_matrix = confusion_matrix(y_test, y_pred)
 print(cnf_matrix)
 
 ```
+
+Output: AUC and its difference from that obtained in function 1 (for each sensor configuration)
+
+#### 3: Choosing the best performing minimal sensor configuration
+Module automatation being implemented 
+
+Parameters:
+	AUROC threshold value AUC_min
+	Lead time threshold value L_min
+
+Output: From the list of Sensor configurations S_i arranged in ascending order based on number and complexity of vitals, choose the first configuration S_min for which AUROC obtained in module 1 and corresponding lead time are greater than or equal to their respective threshold values AUC_min  and L_min.
+
+### Setup and runtime
+Modules 1,2 and 3 are run once at the setup time and the 15 best performing pre-trained and validated models corresponding to 15 sensor configurations are also provided in the repository. During runtime, the following algorithm is used to predict sepsis for a new patient.
+
+Parameters: 
+	Patient’s wearable sensor configuration S_p
+	Patient_vitals = new patient data
+	Lead time = 3,4,5,6 hours
+
+Subroutines:
+Choose the Tele-SEP model that satisfies the patient’s wearable sensor configuration S_p. For the sensor configuration Sp, retrieve four sets of models M_p3, M_p4, M_p5, M_p6 corresponding to the four lead times. 
+From each set choose the best performing model M_p3^*, M_p4^*, M_p5^*, M_p6^* . Run these on Patient_vitals to compute the sepsis probabilities.
+
+Output: The maximum of the four sepsis probabilities and the corresponding lead time resulting from the above computation 
+
+### Trained Models
+Pre-trained XGBoost models for different lead times of prediction ranging from 3 hour to 6 hours is provided for use at [our github repository](https://github.com/pprahul/Tele-SEP/tree/main/trained-models/XGBoost)
 
 
 ### Datasets
