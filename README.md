@@ -23,16 +23,16 @@ The input should be formatted so that the measurements span a minimum of 3 hours
 
 Input data files are zipped and can be accessed from the repository:
 Raw Dataset
-- hospitalA(BIDMC)_sepsis_raw.zip
-- hospitalA(BIDMC)_controls_raw.zip
-- hospitalB(Emory)_sepsis_raw.zip
-- hospital B_(Emory)_controls_raw.zip 
+- [hospitalA(BIDMC)_sepsis_raw.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalA(BIDMC)_sepsis_raw.zip)
+- [hospitalA(BIDMC)_controls_raw.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalA(BIDMC)_controls_raw.zip)
+- [hospitalB(Emory)_sepsis_raw.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalB(Emory)_sepsis_raw.zip)
+- [hospital B_(Emory)_controls_raw.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalB(Emory)_controls_raw.zip)
 
 Curated dataset for this study
-- hospitalA(BIDMC)_sepsis_curated.zip
-- hospitalA(BIDMC)_controls_curated.zip
-- hospitalB(Emory)_sepsis_curated.zip
-- hospital B_(Emory)_controls_curated.zip
+- [hospitalA(BIDMC)_sepsis_curated.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalA(BIDMC)_sepsis_curated.rar)
+- [hospitalA(BIDMC)_controls_curated.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalA(BIDMC)_controls_curated.rar)
+- [hospitalB(Emory)_sepsis_curated.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalB(Emory)_sepsis_curated.rar)
+- [hospital B_(Emory)_controls_curated.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalB(Emory)_controls_curated.rar)
 
 ### Usage
 The Algorithm is implemented as a set of following three python modules:
