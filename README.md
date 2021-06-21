@@ -41,7 +41,7 @@ The Algorithm is implemented as a set of following three python modules:
 Module: [Tele-SEP-train-model.py](https://github.com/pprahul/Tele-SEP/blob/main/Tele-SEP-train-model.py)
 
 Parameters:
-Each of the 15 sensor configurations (S_i)
+Each of the 15 sensor configurations (S<sub>i</sub>)
 Each of the 16 timing tuples (W,L)
 
 Output: AUROC for each (S_i,W,L)
