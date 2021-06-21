@@ -102,21 +102,3 @@ Output: The maximum of the four sepsis probabilities and the corresponding lead 
 
 ### Trained Models
 Pre-trained XGBoost models for different lead times of prediction ranging from 3 hour to 6 hours is provided for use at [our github repository](https://github.com/pprahul/Tele-SEP/tree/main/trained-models/XGBoost)
-
-
-### Datasets
-*Hospital A*
-
-[Non-sepsis Patients](https://github.com/pprahul/Tele-SEP/blob/main/trainingA_nonsepsis.zip)
-
-[Sepsis Patients](https://github.com/pprahul/Tele-SEP/blob/main/trainingA_sepsis_15h.zip)
-
-*Hospital B*
-
-[Non-sepsis Patients](https://github.com/pprahul/Tele-SEP/blob/main/trainingB_nonsepsis.zip)
-
-[Sepsis Patients](https://github.com/pprahul/Tele-SEP/blob/main/trainingB_sepsis_15h.zip)
-
-
-
-
