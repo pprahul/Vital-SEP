@@ -1,17 +1,39 @@
+This work is part of the paper titled - "Minimal Vital Sensor Architectures for Early Warning of Sepsis in Telehealth Patients" (under review)
+
 # Tele-SEP
-A Sepsis Prediction Engine for Telehealth applications.
+A Sepsis Prediction Engine for Telehealth applications that employs Gradient Boosted Decision Tree (XGBoost) on features extracted from vitals obtained from wearable sensors
 
-An early warning system for sepsis called the Tele-Sepsis Prediction Engine (Tele-SEP), uses plug-and-play machine learning algorithms to compute intrinsic correlations between the changes in vital signs, designed to predict sepsis up to six hours prior to its onset. Tele-SEP was trained and validated on independent datasets drawn from the widely accepted MIMIC-II database.
+### Programming Platforms Used
+- Python 3
+- MatplotLib
+- NumPy
+- Pandas
 
-
-### Input data
-Input to Tele-SEP can be hourly measurements of any one or a combination of the following vital parameters:
+### Input Dataset
+Sequence of hourly measurements of the following vital signs:
 - heart rate
-- SpO2 (blood oxygen)
 - respiratory rate
+- SpO2 (blood oxygen)
 - temperature
+These measurements obtained from patients of two different hospitals are contained in the following zip files. Each zip file when extracted generates the individual patient data files.
+
+The raw files refer to Physionet CinC 2019 database, which are then preprocessed (as per inclusion exclusion criteria etc.) to generate the curated datasets used for this study.
 
 The input should be formatted so that the measurements span a minimum of 3 hours and a maximum of 6 hours.
+
+Input data files are zipped and can be accessed from the repository:
+Raw Dataset
+- hospitalA(BIDMC)_sepsis_raw.zip
+- hospitalA(BIDMC)_controls_raw.zip
+- hospitalB(Emory)_sepsis_raw.zip
+- hospital B_(Emory)_controls_raw.zip 
+
+Curated dataset for this study
+- hospitalA(BIDMC)_sepsis_curated.zip
+- hospitalA(BIDMC)_controls_curated.zip
+- hospitalB(Emory)_sepsis_curated.zip
+- hospital B_(Emory)_controls_curated.zip
+
 
 ### Output
 Tele-SEP model predicts the probability of occurance of sepsis based on the input vital parameter measurements.
@@ -56,7 +78,6 @@ print(cnf_matrix)
 
 [Sepsis Patients](https://github.com/pprahul/Tele-SEP/blob/main/trainingB_sepsis_15h.zip)
 
-This project is supported by [Amrita Vishwa Vidyapeetham](https://www.amrita.edu/).
 
 
 
