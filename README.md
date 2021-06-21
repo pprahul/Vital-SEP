@@ -44,7 +44,7 @@ Parameters:
 Each of the 15 sensor configurations (S<sub>i</sub>)
 Each of the 16 timing tuples (W,L)
 
-Output: AUROC for each (S_i,W,L)
+Output: AUROC for each (S<sub>i</sub>,W,L)
 
 For each sensor configuration the highest AUC yielding model is chosen to be validated in the next function
 
@@ -52,8 +52,8 @@ For each sensor configuration the highest AUC yielding model is chosen to be val
 Module: [Tele-SEP-ModelLoadRunOnly.py](https://github.com/pprahul/Tele-SEP/blob/main/Tele-SEP-ModelLoadRunOnly.py)
 
 Parameters: 
-each of the 15 sensor configurations (Si)
-Best performing timing tuple (WAUC,LAUC) corresponding to Si.
+each of the 15 sensor configurations (S<sub>i</sub>)
+Best performing timing tuple (WAUC,LAUC) corresponding to S<sub>i</sub>.
   
 ```markdown
 import pickle
@@ -81,22 +81,22 @@ Output: AUC and its difference from that obtained in function 1 (for each sensor
 Module automatation being implemented 
 
 Parameters:
-	AUROC threshold value AUC_min
-	Lead time threshold value L_min
+	AUROC threshold value AUC<sub>min</sub>
+	Lead time threshold value L<sub>min</sub>
 
-Output: From the list of Sensor configurations S_i arranged in ascending order based on number and complexity of vitals, choose the first configuration S_min for which AUROC obtained in module 1 and corresponding lead time are greater than or equal to their respective threshold values AUC_min  and L_min.
+Output: From the list of Sensor configurations arranged in ascending order based on number and complexity of vitals, choose the first configuration S<sub>min</sub> for which AUROC obtained in module 1 and corresponding lead time are greater than or equal to their respective threshold values AUC<sub>min</sub>  and L<sub>min</sub>.
 
 ### Setup and runtime
 Modules 1,2 and 3 are run once at the setup time and the 15 best performing pre-trained and validated models corresponding to 15 sensor configurations are also provided in the repository. During runtime, the following algorithm is used to predict sepsis for a new patient.
 
 Parameters: 
-	Patient’s wearable sensor configuration S_p
+	Patient’s wearable sensor configuration S<sub>p</sub>
 	Patient_vitals = new patient data
 	Lead time = 3,4,5,6 hours
 
 Subroutines:
-Choose the Tele-SEP model that satisfies the patient’s wearable sensor configuration S_p. For the sensor configuration Sp, retrieve four sets of models M_p3, M_p4, M_p5, M_p6 corresponding to the four lead times. 
-From each set choose the best performing model M_p3^*, M_p4^*, M_p5^*, M_p6^* . Run these on Patient_vitals to compute the sepsis probabilities.
+Choose the Tele-SEP model that satisfies the patient’s wearable sensor configuration S<sub>p</sub>. For the sensor configuration S<sub>p</sub>, retrieve four sets of models M<sub>p</sub>3, M<sub>p</sub>4, M<sub>p</sub>5, M<sub>p</sub>6 corresponding to the four lead times. 
+From each set choose the best performing model M<sub>p</sub>3<sup>*</sup>, M<sub>p</sub>4<sup>*</sup>, M<sub>p</sub>5<sup>*</sup>, M<sub>p</sub>6<sup>*</sup>. Run these on Patient_vitals to compute the sepsis probabilities.
 
 Output: The maximum of the four sepsis probabilities and the corresponding lead time resulting from the above computation 
 
