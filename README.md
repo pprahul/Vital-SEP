@@ -15,6 +15,7 @@ Sequence of hourly measurements of the following vital signs:
 - respiratory rate
 - SpO2 (blood oxygen)
 - temperature
+
 These measurements obtained from patients of two different hospitals are contained in the following zip files. Each zip file when extracted generates the individual patient data files.
 
 The raw files refer to Physionet CinC 2019 database, which are then preprocessed (as per inclusion exclusion criteria etc.) to generate the curated datasets used for this study.
