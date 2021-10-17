@@ -1,7 +1,7 @@
-This work is part of the paper titled - "Minimal Vital Sensor Architectures for Early Warning of Sepsis in Telehealth Patients" (under review)
+This work is part of the paper titled - "Performance Effectiveness of Vital Parameter Combinations for Early Warning of Sepsis - An Exhaustive Study Using Machine Learning" (under review)
 
-# Tele-SEP
-A Sepsis Prediction Engine for Telehealth applications that employs Gradient Boosted Decision Tree (XGBoost) on features extracted from vitals obtained from wearable sensors
+# Vital-SEP
+A Sepsis Prediction Engine for hospitals that employs Gradient Boosted Decision Tree (XGBoost) on features extracted from vitals obtained from wearable sensors
 
 ### Programming Platforms Used
 - Python 3
