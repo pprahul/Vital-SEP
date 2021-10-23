@@ -1,7 +1,7 @@
 This work is part of the paper titled - "Minimal Vital Sensor Architectures for Early Warning of Sepsis in Telehealth Patients" (under review)
 
-# Tele-SEP
-A Sepsis Prediction Engine for Telehealth applications that employs Gradient Boosted Decision Tree (XGBoost) on features extracted from vitals obtained from wearable sensors
+# Vital-SEP
+A Sepsis Prediction Engine that employs Gradient Boosted Decision Tree (XGBoost) on features extracted from vitals obtained from wearable sensors
 
 ### Programming Platforms Used
 - Python 3
@@ -24,22 +24,22 @@ The input should be formatted so that the measurements span a minimum of 3 hours
 
 Input data files are zipped and can be accessed from the repository:
 Raw Dataset
-- [hospitalA(BIDMC)_sepsis_raw.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalA(BIDMC)_sepsis_raw.zip)
-- [hospitalA(BIDMC)_controls_raw.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalA(BIDMC)_controls_raw.zip)
-- [hospitalB(Emory)_sepsis_raw.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalB(Emory)_sepsis_raw.zip)
-- [hospital B_(Emory)_controls_raw.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalB(Emory)_controls_raw.zip)
+- [hospitalA(BIDMC)_sepsis_raw.zip](https://github.com/pprahul/Vital-SEP/blob/main/hospitalA(BIDMC)_sepsis_raw.zip)
+- [hospitalA(BIDMC)_controls_raw.zip](https://github.com/pprahul/Vital-SEP/blob/main/hospitalA(BIDMC)_controls_raw.zip)
+- [hospitalB(Emory)_sepsis_raw.zip](https://github.com/pprahul/Vital-SEP/blob/main/hospitalB(Emory)_sepsis_raw.zip)
+- [hospital B_(Emory)_controls_raw.zip](https://github.com/pprahul/Vital-SEP/blob/main/hospitalB(Emory)_controls_raw.zip)
 
 Curated dataset for this study
-- [hospitalA(BIDMC)_sepsis_curated.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalA(BIDMC)_sepsis_curated.rar)
-- [hospitalA(BIDMC)_controls_curated.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalA(BIDMC)_controls_curated.rar)
-- [hospitalB(Emory)_sepsis_curated.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalB(Emory)_sepsis_curated.rar)
-- [hospital B_(Emory)_controls_curated.zip](https://github.com/pprahul/Tele-SEP/blob/main/hospitalB(Emory)_controls_curated.rar)
+- [hospitalA(BIDMC)_sepsis_curated.zip](https://github.com/pprahul/Vital-SEP/blob/main/hospitalA(BIDMC)_sepsis_curated.rar)
+- [hospitalA(BIDMC)_controls_curated.zip](https://github.com/pprahul/Vital-SEP/blob/main/hospitalA(BIDMC)_controls_curated.rar)
+- [hospitalB(Emory)_sepsis_curated.zip](https://github.com/pprahul/Vital-SEP/blob/main/hospitalB(Emory)_sepsis_curated.rar)
+- [hospital B_(Emory)_controls_curated.zip](https://github.com/pprahul/Vital-SEP/blob/main/hospitalB(Emory)_controls_curated.rar)
 
 ### Usage
 The Algorithm is implemented as a set of following three python modules:
 
 #### 1: Building and training the XGBoost models using Hospital A datasets.
-Module: [Tele-SEP-train-model.py](https://github.com/pprahul/Tele-SEP/blob/main/Tele-SEP-train-model.py)
+Module: [Tele-SEP-train-model.py](https://github.com/pprahul/Vital-SEP/blob/main/Tele-SEP-train-model.py)
 
 Parameters:
 Each of the 15 sensor configurations (S<sub>i</sub>)
@@ -50,7 +50,7 @@ Output: AUROC for each (S<sub>i</sub>,W,L)
 For each sensor configuration the highest AUC yielding model is chosen to be validated in the next function
 
 #### 2: Validating the model using Hospital B datasets.
-Module: [Tele-SEP-ModelLoadRunOnly.py](https://github.com/pprahul/Tele-SEP/blob/main/Tele-SEP-ModelLoadRunOnly.py)
+Module: [Tele-SEP-ModelLoadRunOnly.py](https://github.com/pprahul/Vital-SEP/blob/main/Tele-SEP-ModelLoadRunOnly.py)
 
 Parameters: 
 each of the 15 sensor configurations (S<sub>i</sub>)
@@ -88,7 +88,7 @@ Parameters:
 Output: From the list of Sensor configurations arranged in ascending order based on number and complexity of vitals, choose the first configuration S<sub>min</sub> for which AUROC obtained in module 1 and corresponding lead time are greater than or equal to their respective threshold values AUC<sub>min</sub>  and L<sub>min</sub>.
 
 ### Setup and runtime
-Modules 1,2 and 3 are run once at the setup time and a subset of the best performing pre-trained and validated models corresponding to various sensor configurations are also provided in the [repository](https://github.com/pprahul/Tele-SEP/tree/main/trained-models/XGBoost). During runtime, the following algorithm is used to predict sepsis for a new patient.
+Modules 1,2 and 3 are run once at the setup time and a subset of the best performing pre-trained and validated models corresponding to various sensor configurations are also provided in the [repository](https://github.com/pprahul/Vital-SEP/tree/main/trained-models/XGBoost). During runtime, the following algorithm is used to predict sepsis for a new patient.
 
 Parameters: 
 	Patient’s wearable sensor configuration S<sub>p</sub>
